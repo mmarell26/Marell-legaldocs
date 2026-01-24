@@ -3,18 +3,280 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b1220" />
 
   <title>Marell LegalDocs | Court Document Preparation (Non-Attorney)</title>
   <meta name="description" content="Court-ready document preparation for self-represented litigants. Non-attorney service. Clear scope, secure intake, professional formatting." />
 
-  <!-- IMPORTANT: style.css must exist in the SAME folder as this index.html -->
-  <link rel="stylesheet" href="./style.css?v=7" />
+  <!-- Social preview (optional but professional) -->
+  <meta property="og:title" content="Marell LegalDocs | Court Document Preparation (Non-Attorney)" />
+  <meta property="og:description" content="Court-ready document preparation for people representing themselves. Clear scope, secure intake, professional formatting." />
+  <meta property="og:type" content="website" />
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --bg2:#0f1a2d;
+      --panel:rgba(255,255,255,.06);
+      --panel2:rgba(255,255,255,.08);
+      --stroke:rgba(255,255,255,.12);
+      --text:#e9eef8;
+      --muted:#b8c4da;
+      --gold:#fbbf24;
+      --gold2:#ffd46b;
+      --danger:#ff6b6b;
+      --ok:#55e6a5;
+      --shadow:0 18px 56px rgba(0,0,0,.45);
+      --radius:18px;
+      --radius2:24px;
+      --max:1120px;
+      --focus:0 0 0 3px rgba(251,191,36,.35);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(1000px 520px at 18% 0%, rgba(251,191,36,.18), transparent 55%),
+        radial-gradient(780px 320px at 85% 12%, rgba(89,130,246,.14), transparent 60%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      line-height:1.5;
+    }
+
+    a{color:inherit; text-decoration:none}
+    a:hover{opacity:.92}
+    img{max-width:100%; height:auto}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 22px}
+
+    /* Accessibility */
+    .skip{
+      position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden;
+    }
+    .skip:focus{
+      left:18px; top:18px; width:auto; height:auto; padding:10px 12px;
+      background:#111a2c; border:1px solid var(--stroke); border-radius:12px;
+      z-index:9999;
+      box-shadow:var(--shadow);
+    }
+    :focus-visible{outline:none; box-shadow:var(--focus); border-radius:10px}
+
+    /* Topbar */
+    .topbar{
+      position:sticky; top:0; z-index:1000;
+      background:rgba(11,18,32,.74);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--stroke);
+    }
+    .topbar__inner{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:16px; padding:14px 22px;
+    }
+    .brand{display:flex; flex-direction:column; gap:3px}
+    .brand__name{
+      font-weight:950; letter-spacing:.10em; text-transform:uppercase;
+      color:var(--gold2); font-size:1.02rem;
+    }
+    .brand__tag{color:var(--muted); font-size:.92rem}
+    .nav{
+      display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+    }
+    .nav a{
+      color:var(--muted); font-weight:800; font-size:.95rem;
+      padding:8px 8px; border-radius:10px;
+    }
+    .nav a:hover{color:var(--text); background:rgba(255,255,255,.04)}
+    .nav .btn{padding:10px 12px}
+
+    /* Buttons */
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:11px 14px; border-radius:12px; border:1px solid transparent;
+      font-weight:950; letter-spacing:.01em; white-space:nowrap;
+      transition:transform .08s ease, background .12s ease, border-color .12s ease;
+    }
+    .btn:active{transform:translateY(1px)}
+    .btn--block{width:100%}
+    .btn--primary{
+      background:linear-gradient(180deg, var(--gold), #f59e0b);
+      color:#111827; border-color:rgba(0,0,0,.08);
+      box-shadow:0 10px 20px rgba(251,191,36,.18);
+    }
+    .btn--ghost{
+      background:transparent; border-color:var(--stroke); color:var(--text);
+    }
+    .btn--ghost:hover{border-color:rgba(255,255,255,.22)}
+    .btn--danger{
+      background:rgba(255,107,107,.14);
+      border-color:rgba(255,107,107,.30);
+      color:#ffe7e7;
+    }
+
+    /* Layout sections */
+    .hero{padding:46px 0 22px}
+    .hero__grid{
+      display:grid; grid-template-columns:1.35fr .85fr; gap:16px; align-items:start;
+    }
+    .surface{
+      background:var(--panel); border:1px solid var(--stroke);
+      border-radius:var(--radius2); box-shadow:var(--shadow);
+    }
+    .hero__copy{padding:26px}
+    .kicker{
+      color:var(--gold2); font-weight:950; letter-spacing:.10em; text-transform:uppercase;
+      font-size:.78rem; margin-bottom:10px;
+    }
+    h1{margin:0 0 10px; font-size:2.25rem; line-height:1.12}
+    .lead{margin:0 0 16px; color:var(--muted); font-size:1.06rem; line-height:1.65}
+
+    .cta{display:flex; gap:12px; flex-wrap:wrap; margin:12px 0 14px}
+    .chips{display:flex; gap:10px; flex-wrap:wrap; margin:10px 0 14px}
+    .chip{
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:999px;
+      padding:7px 10px;
+      font-weight:850;
+      font-size:.86rem;
+      color:var(--text);
+    }
+
+    .notice{
+      margin-top:10px;
+      background:rgba(251,191,36,.10);
+      border:1px solid rgba(251,191,36,.25);
+      border-radius:14px;
+      padding:12px 12px;
+      color:#ffe9b3;
+      line-height:1.55;
+    }
+
+    .card{padding:22px}
+    .card__title{margin:0 0 12px; font-size:1.12rem; letter-spacing:.01em}
+    .steps{margin:0; padding-left:18px; color:var(--muted)}
+    .steps li{margin:10px 0; line-height:1.45}
+    .steps li span{color:var(--text); font-weight:950; display:block}
+    .steps li em{font-style:normal; color:var(--muted)}
+    .card__actions{margin-top:14px; display:grid; gap:10px}
+
+    .section{padding:34px 0}
+    .section--alt{
+      background:rgba(255,255,255,.03);
+      border-top:1px solid rgba(255,255,255,.06);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .section__head{margin-bottom:16px}
+    .section__head h2{margin:0 0 6px; font-size:1.55rem}
+    .section__head p{margin:0; color:var(--muted); line-height:1.55}
+
+    .grid4{display:grid; grid-template-columns:repeat(4,1fr); gap:12px}
+    .grid2{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+
+    .panel{padding:18px}
+    .panel h3{margin:0 0 8px; font-size:1.05rem}
+    .panel p{margin:0; color:var(--muted); line-height:1.6}
+    .panel--note{margin-top:12px; background:rgba(255,255,255,.05)}
+    .panel--note p{color:var(--muted)}
+
+    /* Pricing list */
+    .list{list-style:none; padding:0; margin:12px 0 0}
+    .list li{
+      display:flex; justify-content:space-between; gap:16px;
+      padding:10px 0; border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .list li:last-child{border-bottom:none}
+    .list strong{color:var(--text)}
+    .list span{color:var(--muted); text-align:right}
+
+    .badgeRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.06);
+      color:var(--muted);
+      font-weight:850;
+      font-size:.86rem;
+    }
+    .dot{width:9px; height:9px; border-radius:999px; background:var(--ok)}
+
+    /* FAQ */
+    .faq details{
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:14px;
+      padding:12px 12px;
+      margin:10px 0;
+    }
+    .faq summary{cursor:pointer; font-weight:950; color:var(--text)}
+    .faq p{margin:10px 0 0; color:var(--muted); line-height:1.6}
+
+    /* Contact */
+    .contact{
+      display:grid; grid-template-columns:1.4fr .6fr; gap:14px; align-items:start;
+    }
+    .contact__cta{display:grid; gap:10px}
+    .muted{color:var(--muted)}
+    .footnote{
+      margin-top:12px;
+      color:var(--muted);
+      font-size:.95rem;
+      line-height:1.55;
+    }
+
+    /* Footer */
+    .footer{padding:20px 0 30px}
+    .footer__inner{
+      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+      color:var(--muted);
+      border-top:1px solid rgba(255,255,255,.08);
+      padding-top:16px;
+    }
+
+    /* Small helpers */
+    .divider{
+      height:1px;
+      background:rgba(255,255,255,.08);
+      margin:16px 0;
+    }
+
+    /* Mobile */
+    @media (max-width: 980px){
+      .hero__grid{grid-template-columns:1fr}
+      .grid4{grid-template-columns:1fr 1fr}
+      .grid2{grid-template-columns:1fr}
+      .contact{grid-template-columns:1fr}
+      h1{font-size:1.9rem}
+      .topbar__inner{flex-direction:column; align-items:flex-start}
+    }
+    @media (max-width: 520px){
+      .grid4{grid-template-columns:1fr}
+      .cta{flex-direction:column}
+      .btn{width:100%}
+    }
+  </style>
+
+  <!-- Structured data (optional, professional) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"Marell LegalDocs",
+    "description":"Court document preparation (non-attorney). No legal advice or representation.",
+    "telephone":"+12679240612",
+    "email":"info@marelllegaldocs.com",
+    "areaServed":"Philadelphia, PA",
+    "url":"https://marelllegaldocs.com"
+  }
+  </script>
 </head>
 
 <body>
   <a class="skip" href="#main">Skip to content</a>
 
-  <!-- TOP BAR -->
   <header class="topbar">
     <div class="wrap topbar__inner">
       <div class="brand">
@@ -22,12 +284,13 @@
         <div class="brand__tag">Court Document Preparation (Non-Attorney)</div>
       </div>
 
-      <nav class="nav">
+      <nav class="nav" aria-label="Primary">
         <a href="#how">How It Works</a>
         <a href="#services">Services</a>
         <a href="#faq">FAQ</a>
+        <a href="#policies">Policies</a>
         <a href="#contact">Contact</a>
-        <a class="btn btn--ghost" href="https://tally.so/r/d9NWW" rel="noopener">Start Intake</a>
+        <a class="btn btn--ghost" href="https://tally.so/r/d9NWW" target="_blank" rel="noopener">Start Intake</a>
       </nav>
     </div>
   </header>
@@ -36,7 +299,7 @@
     <!-- HERO -->
     <section class="hero">
       <div class="wrap hero__grid">
-        <div class="hero__copy">
+        <div class="surface hero__copy">
           <div class="kicker">COURT-READY FORMATTING • CLEAR SCOPE • SECURE INTAKE</div>
           <h1>Court document preparation for people representing themselves.</h1>
           <p class="lead">
@@ -45,34 +308,41 @@
           </p>
 
           <div class="cta">
-            <a class="btn btn--primary" href="https://tally.so/r/d9NWW" rel="noopener">Start Intake (Required)</a>
+            <a class="btn btn--primary" href="https://tally.so/r/d9NWW" target="_blank" rel="noopener">Start Intake (Required)</a>
             <a class="btn btn--ghost" href="#services">View Services & Pricing</a>
           </div>
 
-          <div class="chips">
+          <div class="chips" aria-label="Service highlights">
             <span class="chip">Non-Attorney Service</span>
             <span class="chip">No Legal Advice</span>
             <span class="chip">Court-Ready Formatting</span>
             <span class="chip">Email Delivery</span>
           </div>
 
-          <div class="notice">
-            <strong>Important:</strong> We are not a law firm and do not provide legal advice, legal strategy,
-            or representation. You remain responsible for filing, service, and court deadlines.
+          <div class="notice" role="note">
+            <strong>Important:</strong> We are not a law firm and do not provide legal advice, legal strategy, or representation.
+            You remain responsible for filing, service, and court deadlines.
+          </div>
+
+          <div class="badgeRow" aria-label="Operational notes">
+            <span class="badge"><span class="dot"></span>Intake required before pricing</span>
+            <span class="badge"><span class="dot"></span>Drafting begins after payment</span>
           </div>
         </div>
 
-        <aside class="card card--steps">
+        <aside class="surface card" aria-label="How it works summary">
           <h2 class="card__title">How it works</h2>
           <ol class="steps">
-            <li><span>Start intake</span><em>Submit required information</em></li>
-            <li><span>Scope + invoice</span><em>We confirm service + turnaround</em></li>
-            <li><span>Drafting begins</span><em>After payment confirmation</em></li>
-            <li><span>Delivery</span><em>Receive court-ready documents by email</em></li>
+            <li><span>1) Start intake</span><em>Submit required information</em></li>
+            <li><span>2) Scope + invoice</span><em>We confirm service + turnaround</em></li>
+            <li><span>3) Drafting begins</span><em>After payment confirmation</em></li>
+            <li><span>4) Delivery</span><em>Receive documents by email</em></li>
           </ol>
 
+          <div class="divider"></div>
+
           <div class="card__actions">
-            <a class="btn btn--primary btn--block" href="https://tally.so/r/d9NWW" rel="noopener">Start Intake</a>
+            <a class="btn btn--primary btn--block" href="https://tally.so/r/d9NWW" target="_blank" rel="noopener">Start Intake</a>
             <a class="btn btn--ghost btn--block" href="#contact">Questions? Contact us</a>
           </div>
         </aside>
@@ -88,19 +358,19 @@
         </header>
 
         <div class="grid4">
-          <div class="panel">
+          <div class="surface panel">
             <h3>1) Intake</h3>
             <p>Complete the secure intake form and provide factual information only.</p>
           </div>
-          <div class="panel">
+          <div class="surface panel">
             <h3>2) Review</h3>
             <p>We confirm scope, document type, and turnaround before drafting.</p>
           </div>
-          <div class="panel">
+          <div class="surface panel">
             <h3>3) Payment</h3>
             <p>Drafting begins only after payment is confirmed.</p>
           </div>
-          <div class="panel">
+          <div class="surface panel">
             <h3>4) Delivery</h3>
             <p>Receive your documents by email (PDF; Word when applicable).</p>
           </div>
@@ -113,34 +383,38 @@
       <div class="wrap">
         <header class="section__head">
           <h2>Services & Pricing</h2>
-          <p>Pricing depends on document type, length, and intake completeness.</p>
+          <p>Pricing depends on document type, length, and intake completeness. Final pricing is confirmed after review.</p>
         </header>
 
         <div class="grid2">
-          <div class="panel panel--tight">
+          <div class="surface panel">
             <h3>A la carte</h3>
             <ul class="list">
               <li><strong>Single Court Document</strong><span>Starting at $150</span></li>
-              <li><strong>Packet Assembly (Indexes & Exhibits)</strong><span>Starting at $225</span></li>
-              <li><strong>Court Filing Packet</strong><span>$350</span></li>
-              <li><strong>Emergency / Time-Sensitive Filing</strong><span>$450</span></li>
+              <li><strong>Packet Assembly (Index + Exhibits)</strong><span>Starting at $225</span></li>
+              <li><strong>Court Filing Packet (multi-doc)</strong><span>Starting at $350</span></li>
+              <li><strong>Emergency / Time-Sensitive Filing</strong><span>Starting at $450</span></li>
             </ul>
-            <p class="muted">Final pricing is confirmed after intake review.</p>
+            <p class="muted" style="margin:12px 0 0">
+              Rates increase with complexity, missing information, or extensive formatting needs.
+            </p>
           </div>
 
-          <div class="panel panel--tight">
+          <div class="surface panel">
             <h3>Turnaround options</h3>
             <ul class="list">
-              <li><strong>Standard</strong><span>2 business days (most Tier 1–2 work)</span></li>
+              <li><strong>Standard</strong><span>2 business days (most Tier 1–2)</span></li>
               <li><strong>Priority</strong><span>24 hours (+$150)</span></li>
-              <li><strong>Rush</strong><span>Same-day, if accepted (+$300)</span></li>
+              <li><strong>Rush</strong><span>Same-day if accepted (+$300)</span></li>
               <li><strong>After-hours</strong><span>After 6 PM (+$150 additional)</span></li>
             </ul>
-            <p class="muted">Rush is based on availability and intake completeness.</p>
+            <p class="muted" style="margin:12px 0 0">
+              Rush depends on availability and intake completeness.
+            </p>
           </div>
         </div>
 
-        <div class="panel panel--note">
+        <div class="surface panel panel--note">
           <h3>Scope & Responsibility</h3>
           <p>
             Marell LegalDocs is a document preparation service and is not a law firm. We do not provide legal advice or represent clients.
@@ -162,48 +436,106 @@
         <div class="faq">
           <details>
             <summary>Do you provide legal advice?</summary>
-            <p>No. We provide non-attorney document preparation only. We do not provide legal strategy, advice, or representation.</p>
+            <p>No. Marell LegalDocs provides non-attorney document preparation only. We do not provide legal strategy, advice, or representation.</p>
           </details>
+
           <details>
             <summary>Do you file or serve documents for me?</summary>
             <p>No. Filing and service remain the client’s responsibility unless you hire a licensed attorney or authorized process server.</p>
           </details>
+
           <details>
             <summary>What affects turnaround time?</summary>
-            <p>Document type, length, and intake completeness. Missing facts or exhibits pauses the turnaround clock until received.</p>
+            <p>Document type, length, and intake completeness. Missing facts/exhibits pause the turnaround clock until received.</p>
           </details>
+
           <details>
             <summary>What counts as a revision?</summary>
-            <p>Formatting/structure corrections within the selected revision tier. New facts/arguments/exhibits require new scope and a new invoice.</p>
+            <p>Formatting/structure corrections within the included revision tier. New facts/arguments/exhibits require new scope and a new invoice.</p>
+          </details>
+
+          <details>
+            <summary>What if I have an urgent hearing?</summary>
+            <p>If you are facing an urgent hearing or complex legal issues, consult a licensed attorney as soon as possible.</p>
           </details>
         </div>
       </div>
     </section>
 
+    <!-- POLICIES -->
+    <section id="policies" class="section section--alt">
+      <div class="wrap">
+        <header class="section__head">
+          <h2>Refund & Cancellation Policy</h2>
+          <p>Professional terms that match how document prep work is actually performed (time-based review + drafting).</p>
+        </header>
+
+        <div class="surface panel">
+          <h3>1) Intake Review (Before Drafting)</h3>
+          <p>
+            If you cancel <strong>after intake review but before drafting</strong>, any refund (if approved) will be reduced by the value of
+            intake review time already completed.
+          </p>
+
+          <div class="divider"></div>
+
+          <h3>2) Drafting Started</h3>
+          <p>
+            Once drafting begins, the service becomes time-based and non-refundable in most situations because work product is being created.
+          </p>
+
+          <div class="divider"></div>
+
+          <h3>3) Revisions</h3>
+          <p>
+            Revisions are limited to formatting and structure within the applicable revision tier. New facts, new arguments, or new exhibits
+            are treated as new scope and require a new invoice.
+          </p>
+
+          <div class="divider"></div>
+
+          <h3>4) Court Outcomes</h3>
+          <p>
+            Marell LegalDocs does not guarantee court acceptance, filing approval, or legal outcomes. Final determinations are made solely by the court.
+          </p>
+
+          <div class="divider"></div>
+
+          <h3>5) Disputes</h3>
+          <p>
+            By submitting payment, the client acknowledges and agrees to this Refund & Cancellation Policy.
+          </p>
+        </div>
+      </div>
+    </section>
+
     <!-- CONTACT -->
-    <section id="contact" class="section section--alt">
+    <section id="contact" class="section">
       <div class="wrap">
         <header class="section__head">
           <h2>Contact</h2>
           <p>Questions about intake, delivery, or required information?</p>
         </header>
 
-        <div class="panel contact">
+        <div class="surface panel contact">
           <div>
             <p><strong>Email:</strong> <a href="mailto:info@marelllegaldocs.com">info@marelllegaldocs.com</a></p>
             <p><strong>Phone:</strong> <a href="tel:+12679240612">(267) 924-0612</a></p>
-            <p class="muted">If you have an urgent hearing or complex legal issues, consult a licensed attorney.</p>
+
+            <div class="notice" style="margin-top:14px">
+              <strong>Reminder:</strong> We cannot provide legal advice. If you need legal guidance, consult a licensed attorney.
+            </div>
           </div>
 
           <div class="contact__cta">
-            <a class="btn btn--primary btn--block" href="https://tally.so/r/d9NWW" rel="noopener">Start Intake</a>
+            <a class="btn btn--primary btn--block" href="https://tally.so/r/d9NWW" target="_blank" rel="noopener">Start Intake</a>
             <a class="btn btn--ghost btn--block" href="#services">Services & Pricing</a>
           </div>
         </div>
 
-        <div class="footnote">
-          Reminder: We cannot provide legal advice. If you need legal guidance, consult a licensed attorney.
-        </div>
+        <p class="footnote">
+          Documents are prepared strictly based on the information you provide. You are responsible for reviewing, signing, filing, and serving your documents.
+        </p>
       </div>
     </section>
 
@@ -216,6 +548,7 @@
   </main>
 
   <script>
+    // Year auto-update
     document.getElementById("yr").textContent = new Date().getFullYear();
   </script>
 </body>
