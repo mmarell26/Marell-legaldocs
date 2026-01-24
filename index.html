@@ -283,7 +283,21 @@
   justify-content: flex-start !important;
   align-items: flex-start !important;
 }
+/* Tighten the hero card to the left */
+.hero-card {
+  margin-left: 0 !important;
+}
 
+.heroContent {
+  padding-left: 0 !important;
+}
+
+/* If your hero is inside a container that auto-centers, force left */
+.hero .container,
+.hero .inner,
+.hero .wrap {
+  margin-left: 0 !important;
+}
 /* Ensure card hugs left side */
 .hero-card {
   max-width: 760px;
