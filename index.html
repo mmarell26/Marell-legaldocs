@@ -256,7 +256,38 @@
       .grid4{grid-template-columns:1fr}
       .cta{flex-direction:column}
       .btn{width:100%}
-    }
+/* ============================
+   HERO LEFT ALIGNMENT FIX
+   ============================ */
+
+.hero,
+.heroGrid,
+.hero-card,
+.heroContent {
+  display: block;
+  text-align: left !important;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+
+.hero h1,
+.hero h2,
+.hero p {
+  text-align: left !important;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+
+/* Kill forced centering from grid or flex */
+.heroGrid {
+  justify-content: flex-start !important;
+  align-items: flex-start !important;
+}
+
+/* Ensure card hugs left side */
+.hero-card {
+  max-width: 760px;
+}
   </style>
 
   <!-- Structured data (optional, professional) -->
