@@ -4,18 +4,30 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Marell LegalDocs | Court Document Preparation (Non-Attorney)</title>
-  <meta name="description" content="Professional court document preparation for self-represented clients. Court-ready formatting, secure intake, and email delivery." />
+  <meta name="description" content="Court document preparation for self-represented clients. Court-ready formatting, secure intake, and email delivery. Non-attorney service. No legal advice." />
 
-  <!-- Your main stylesheet -->
+  <!-- Keep your existing stylesheet (optional). This page also includes safe built-in styling. -->
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Minimal header + layout safety styles (keeps it clean even if style.css is messy) -->
   <style>
-    /* ====== Base safety (does not fight your style.css; just prevents ugly defaults) ====== */
+    /* =========================================================
+       SAFE BASE (prevents ugly defaults, minimizes conflicts)
+       ========================================================= */
     html, body { margin: 0; padding: 0; }
-    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: #0b1220;
+      color: #e2e8f0;
+    }
+    a { color: inherit; }
 
-    /* ====== Header (Professional / Legal style) ====== */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 22px; }
+    .section { padding: 44px 0; }
+    .muted { color: #cbd5e1; }
+
+    /* =========================================================
+       HEADER (single header, professional, sticky)
+       ========================================================= */
     .site-header {
       background: #0f172a;
       border-bottom: 1px solid rgba(255,255,255,0.08);
@@ -34,73 +46,115 @@
     }
     .brand { display: flex; flex-direction: column; line-height: 1.1; }
     .brand-name {
-      font-size: 1.1rem;
-      font-weight: 700;
+      font-size: 1.05rem;
+      font-weight: 800;
       color: #f8fafc;
       letter-spacing: 1px;
       text-transform: uppercase;
     }
     .brand-tagline {
-      font-size: 0.78rem;
+      font-size: 0.80rem;
       color: #94a3b8;
       margin-top: 2px;
     }
-    .main-nav { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; justify-content: flex-end; }
-    .main-nav a { color: #cbd5e1; text-decoration: none; font-size: 0.95rem; white-space: nowrap; }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .main-nav a {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 0.95rem;
+      white-space: nowrap;
+    }
     .main-nav a:hover { color: #ffffff; }
     .main-nav a.cta {
       background: #fbbf24 !important;
       color: #0f172a !important;
       padding: 8px 14px !important;
-      border-radius: 8px !important;
-      font-weight: 800 !important;
-      display: inline-block;
+      border-radius: 10px !important;
+      font-weight: 900 !important;
       border: none !important;
+      display: inline-block;
     }
 
-    /* ====== Layout containers ====== */
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 22px; }
-    .section { padding: 34px 0; }
-
-    /* ====== Hero ====== */
-    .hero { padding: 34px 0 18px; background: radial-gradient(1000px 450px at 20% 0%, rgba(251,191,36,0.10), transparent 55%); }
-    .heroGrid { display: grid; grid-template-columns: 1.3fr 0.9fr; gap: 18px; align-items: start; }
+    /* =========================================================
+       HERO
+       ========================================================= */
+    .hero {
+      padding: 40px 0 24px;
+      background: radial-gradient(1000px 450px at 20% 0%, rgba(251,191,36,0.10), transparent 55%);
+    }
+    .heroGrid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr;
+      gap: 18px;
+      align-items: start;
+    }
     .card {
       background: rgba(15, 23, 42, 0.85);
-      color: #e2e8f0;
       border: 1px solid rgba(255,255,255,0.08);
       border-radius: 14px;
       padding: 22px;
       backdrop-filter: blur(6px);
     }
-    .kicker { color: #fbbf24; font-weight: 800; letter-spacing: 0.6px; font-size: 0.78rem; text-transform: uppercase; margin-bottom: 10px; }
-    h1 { margin: 0 0 10px; font-size: 2rem; line-height: 1.15; color: #f8fafc; }
-    .sub { margin: 0 0 18px; color: #cbd5e1; line-height: 1.5; }
-    .ctaRow { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+    .kicker {
+      color: #fbbf24;
+      font-weight: 900;
+      letter-spacing: 0.6px;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: 2rem;
+      line-height: 1.15;
+      color: #f8fafc;
+    }
+    h2 {
+      margin: 0 0 14px;
+      font-size: 1.25rem;
+      color: #f8fafc;
+    }
+    .sub {
+      margin: 0 0 14px;
+      color: #cbd5e1;
+      line-height: 1.55;
+    }
+    .ctaRow {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 6px;
+    }
     .btn {
       display: inline-block;
       padding: 10px 14px;
       border-radius: 10px;
-      font-weight: 800;
+      font-weight: 900;
       text-decoration: none;
       border: 1px solid rgba(255,255,255,0.14);
     }
     .btn.primary { background: #fbbf24; color: #0f172a; border-color: transparent; }
     .btn.ghost { background: transparent; color: #e2e8f0; }
+
     .badges { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
-    .badge { font-size: 0.78rem; padding: 6px 10px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.12); color: #cbd5e1; }
+    .badge {
+      font-size: 0.78rem;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #cbd5e1;
+    }
 
-    /* ====== How it works list ====== */
-    .steps h2, .section h2 { margin: 0 0 12px; color: #0f172a; }
-    .lightSection { background: #0b1220; }
-    .lightSection h2 { color: #f8fafc; }
-    .step { margin: 10px 0; padding: 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.04); }
-    .stepTitle { font-weight: 900; color: #f8fafc; margin-bottom: 6px; }
-    .stepText { color: #cbd5e1; margin: 0; }
-
-    /* ====== Footer disclaimer ====== */
     .disclaimer {
-      margin-top: 16px;
+      margin-top: 14px;
       padding: 12px 14px;
       border-radius: 12px;
       border: 1px solid rgba(255,255,255,0.10);
@@ -110,19 +164,68 @@
       line-height: 1.45;
     }
 
-    /* ====== Responsive ====== */
+    /* =========================================================
+       HOW IT WORKS (right card)
+       ========================================================= */
+    .step {
+      margin: 10px 0;
+      padding: 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+    }
+    .stepTitle { font-weight: 950; color: #f8fafc; margin-bottom: 6px; }
+    .stepText { color: #cbd5e1; margin: 0; line-height: 1.45; }
+
+    /* =========================================================
+       SECTION STYLES
+       ========================================================= */
+    .panel {
+      background: rgba(15, 23, 42, 0.55);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 18px;
+    }
+    .grid2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .serviceItem {
+      padding: 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+    }
+    .serviceItem h3 { margin: 0 0 6px; font-size: 1rem; color: #f8fafc; }
+    .serviceItem p { margin: 0; color: #cbd5e1; line-height: 1.45; font-size: 0.95rem; }
+
+    .faqItem {
+      padding: 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      margin-bottom: 10px;
+    }
+    .faqQ { font-weight: 950; margin: 0 0 6px; color: #f8fafc; }
+    .faqA { margin: 0; color: #cbd5e1; line-height: 1.5; }
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
     @media (max-width: 900px) {
       .heroGrid { grid-template-columns: 1fr; }
       .header-inner { flex-direction: column; align-items: flex-start; }
       .main-nav { justify-content: flex-start; }
-      h1 { font-size: 1.7rem; }
+      h1 { font-size: 1.65rem; }
+      .grid2 { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- ONE header only. No duplicates anywhere. -->
+  <!-- SINGLE HEADER ONLY (no duplicates) -->
   <header class="site-header">
     <div class="header-inner">
       <div class="brand">
@@ -130,7 +233,7 @@
         <div class="brand-tagline">Court Document Preparation (Non-Attorney)</div>
       </div>
 
-      <nav class="main-nav" aria-label="Primary">
+      <nav class="main-nav" aria-label="Primary navigation">
         <a href="#how-it-works">How It Works</a>
         <a href="#services">Services</a>
         <a href="#faq">FAQ</a>
@@ -140,18 +243,27 @@
     </div>
   </header>
 
-  <!-- HERO -->
   <main>
+
+    <!-- HERO + HOW IT WORKS -->
     <section class="hero" id="top">
       <div class="container">
         <div class="heroGrid">
 
+          <!-- STEP 1 HERO (final copy, conversion-safe, compliant) -->
           <div class="card">
-            <div class="kicker">Court-ready formatting • Clear process • Secure payment</div>
-            <h1>Get your court paperwork prepared correctly — fast, clear, professional.</h1>
+            <div class="kicker">Court-ready formatting • Clear scope • Secure intake</div>
+
+            <h1>Court document preparation for people representing themselves.</h1>
+
             <p class="sub">
-              For self-represented clients who need well-formatted, court-ready documents.
-              Complete intake, select your service, pay securely, and receive your draft by email.
+              Marell LegalDocs prepares clean, properly formatted court documents for self-represented clients.
+              We organize your information into court-ready filings so you can submit them confidently and on time.
+            </p>
+
+            <p class="sub">
+              <strong>Important:</strong> We are not a law firm and do not provide legal advice, legal strategy, or representation.
+              You remain responsible for filing, service, and court deadlines.
             </p>
 
             <div class="ctaRow">
@@ -160,41 +272,45 @@
             </div>
 
             <div class="badges">
-              <span class="badge">Not a law firm</span>
-              <span class="badge">No legal advice</span>
-              <span class="badge">Email delivery</span>
-              <span class="badge">Rush available</span>
+              <span class="badge">Non-Attorney Service</span>
+              <span class="badge">No Legal Advice</span>
+              <span class="badge">Court-Ready Formatting</span>
+              <span class="badge">Email Delivery</span>
             </div>
 
             <div class="disclaimer">
-              <strong>Important:</strong> Marell LegalDocs is a document preparation service and is not a law firm.
-              We do not provide legal advice, legal strategy, or representation. You are responsible for reviewing,
-              signing, filing, and serving documents according to court rules and deadlines.
-              If you need legal advice, consult a licensed attorney.
+              <strong>Scope &amp; Responsibility:</strong> Marell LegalDocs is a document preparation service and is not a law firm.
+              We do not provide legal advice or represent clients. You are responsible for reviewing, signing, filing, and serving documents
+              according to court rules, local procedures, and deadlines. If you need legal advice, consult a licensed attorney.
             </div>
           </div>
 
-          <aside class="card steps" id="how-it-works">
+          <!-- HOW IT WORKS (anchor target) -->
+          <aside class="card" id="how-it-works">
             <h2>How it works</h2>
 
             <div class="step">
               <div class="stepTitle">1) Start Intake</div>
-              <p class="stepText">Tell us what you need and provide the details.</p>
+              <p class="stepText">Tell us what you need and provide your case details and document information.</p>
             </div>
 
             <div class="step">
               <div class="stepTitle">2) Select Service + Pay</div>
-              <p class="stepText">Choose your document type and pay securely.</p>
+              <p class="stepText">Choose your document type and submit payment securely (as applicable).</p>
             </div>
 
             <div class="step">
               <div class="stepTitle">3) Draft Preparation</div>
-              <p class="stepText">We format your document in a professional court style.</p>
+              <p class="stepText">We prepare a clean, court-ready draft based on the information you provide.</p>
             </div>
 
             <div class="step">
               <div class="stepTitle">4) Delivery</div>
-              <p class="stepText">Receive your draft by email (revisions if included).</p>
+              <p class="stepText">Receive your draft by email. Revisions are included only if selected in your service.</p>
+            </div>
+
+            <div class="disclaimer">
+              <strong>Reminder:</strong> We do not tell you what to file or how to argue your case. We prepare documents based on your inputs.
             </div>
           </aside>
 
@@ -203,17 +319,41 @@
     </section>
 
     <!-- SERVICES -->
-    <section class="section lightSection" id="services">
+    <section class="section" id="services">
       <div class="container">
         <h2>Services</h2>
-        <p style="color:#cbd5e1; margin:0 0 14px; line-height:1.55;">
-          Select the document you need through intake. Pricing and turnaround will be confirmed after we review your submission.
-          (You can paste your full pricing table here when ready.)
+        <p class="muted" style="margin:0 0 14px; line-height:1.55;">
+          Below are common document-preparation categories. Exact pricing and turnaround can be confirmed through intake based on complexity,
+          number of exhibits, and revisions requested.
         </p>
 
-        <div class="disclaimer">
-          <strong>Scope note:</strong> Document preparation means formatting and organizing your information into court-ready documents.
-          We do not advise you on what to file, what claims to make, or what legal arguments to use.
+        <div class="grid2">
+          <div class="serviceItem">
+            <h3>Motions &amp; Responses</h3>
+            <p>Formatting, headings, paragraph numbering, exhibits labeling, and court-ready layout based on your provided content.</p>
+          </div>
+
+          <div class="serviceItem">
+            <h3>Custody / Family Court Filings</h3>
+            <p>Petitions, proposed orders, certificates of service, and attachments organized into a professional court format.</p>
+          </div>
+
+          <div class="serviceItem">
+            <h3>Affidavits, Verifications, Declarations</h3>
+            <p>Clean formatting, signature blocks, notary sections (if required), and exhibit references.</p>
+          </div>
+
+          <div class="serviceItem">
+            <h3>Proposed Orders &amp; Notices</h3>
+            <p>Judge-facing proposed orders, notices of filing, and properly formatted captions and service language.</p>
+          </div>
+        </div>
+
+        <div class="panel" style="margin-top:14px;">
+          <p class="muted" style="margin:0; line-height:1.55;">
+            <strong>Service boundaries:</strong> We do not create legal arguments or advise what claims to make.
+            We format and organize documents using the information you provide. You are responsible for filing and service.
+          </p>
         </div>
       </div>
     </section>
@@ -222,44 +362,78 @@
     <section class="section" id="faq">
       <div class="container">
         <h2>FAQ</h2>
-        <div class="card" style="background: rgba(15, 23, 42, 0.85);">
-          <p style="margin:0; color:#cbd5e1; line-height:1.55;">
-            Add your FAQs here. Recommended topics:
-            turnaround time, revisions, what you must provide, filing/service responsibility, refunds, rush jobs, and limits of service.
+
+        <div class="faqItem">
+          <p class="faqQ">Are you a law firm?</p>
+          <p class="faqA">No. Marell LegalDocs is a non-attorney document preparation service. We do not provide legal advice or representation.</p>
+        </div>
+
+        <div class="faqItem">
+          <p class="faqQ">Do you file documents with the court for me?</p>
+          <p class="faqA">No. You are responsible for filing, paying court fees, and serving all parties in accordance with court rules and deadlines.</p>
+        </div>
+
+        <div class="faqItem">
+          <p class="faqQ">How do I get started?</p>
+          <p class="faqA">Click “Start Intake,” complete the questions, and provide your details. If exhibits are needed, you can upload them through intake (or we’ll request them by email).</p>
+        </div>
+
+        <div class="faqItem">
+          <p class="faqQ">What is your turnaround time?</p>
+          <p class="faqA">Turnaround depends on the document type, length, and how complete your intake is. You can request rush service through intake when available.</p>
+        </div>
+
+        <div class="panel">
+          <p class="muted" style="margin:0; line-height:1.55;">
+            If you are facing an urgent hearing or complex legal issues, consider consulting a licensed attorney.
           </p>
         </div>
       </div>
     </section>
 
     <!-- CONTACT -->
-    <section class="section lightSection" id="contact">
+    <section class="section" id="contact">
       <div class="container">
         <h2>Contact</h2>
-        <div class="card" style="background: rgba(15, 23, 42, 0.85);">
-          <p style="margin:0 0 12px; color:#cbd5e1; line-height:1.55;">
-            For questions about intake, delivery, or file requirements, contact us:
-          </p>
-          <p style="margin:0; color:#cbd5e1;">
-            <strong>Email:</strong> <a href="mailto:malik@olivehomes.com" style="color:#fbbf24; text-decoration:none;">malik@olivehomes.com</a><br/>
-            <strong>Phone:</strong> <a href="tel:+12679240612" style="color:#fbbf24; text-decoration:none;">(267) 924-0612</a>
+        <div class="card">
+          <p class="sub" style="margin-top:0;">
+            Questions about intake, document delivery, or required information?
           </p>
 
-          <div class="disclaimer" style="margin-top:14px;">
-            <strong>Reminder:</strong> We cannot provide legal advice. If your matter involves deadlines, hearings, or complex legal issues,
-            consider consulting a licensed attorney.
+          <p class="muted" style="margin:0; line-height:1.7;">
+            <strong>Email:</strong>
+            <a href="mailto:malik@olivehomes.com" style="color:#fbbf24; text-decoration:none;">malik@olivehomes.com</a><br/>
+            <strong>Phone:</strong>
+            <a href="tel:+12679240612" style="color:#fbbf24; text-decoration:none;">(267) 924-0612</a>
+          </p>
+
+          <div class="disclaimer">
+            <strong>Reminder:</strong> We cannot provide legal advice. If you need legal guidance, consult a licensed attorney.
+          </div>
+
+          <div class="ctaRow" style="margin-top:14px;">
+            <a class="btn primary" href="https://tally.so/r/d9NWW" target="_blank" rel="noopener">Start Intake</a>
+            <a class="btn ghost" href="#services">Services</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Footer -->
+    <!-- FOOTER -->
     <section class="section" aria-label="Footer">
       <div class="container">
-        <p style="margin:0; color:#64748b; font-size:0.9rem;">
-          © <span id="year"></span> Marell LegalDocs. Court Document Preparation (Non-Attorney).
-        </p>
+        <div class="panel">
+          <p class="muted" style="margin:0; line-height:1.55;">
+            <strong>Legal Disclaimer:</strong> Marell LegalDocs is a document preparation service and is not a law firm.
+            No legal advice or representation is provided. Client is responsible for filing, service, and compliance with court rules.
+          </p>
+          <p class="muted" style="margin:10px 0 0; font-size:0.92rem;">
+            © <span id="year"></span> Marell LegalDocs. Court Document Preparation (Non-Attorney).
+          </p>
+        </div>
       </div>
     </section>
+
   </main>
 
   <script>
