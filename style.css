@@ -1,13 +1,23 @@
 :root{
+  /* Core */
   --bg:#ffffff;
-  --text:#111827;          /* gray-900 */
-  --muted:#4b5563;         /* gray-600 */
-  --soft:#f9fafb;          /* gray-50 */
-  --line:#e5e7eb;          /* gray-200 */
   --card:#ffffff;
-  --shadow: 0 10px 25px rgba(0,0,0,.06);
-  --accent:#111827;
-  --accent2:#2563eb;       /* blue-600 for subtle CTA focus */
+  --soft:#fafafa;
+
+  /* Text */
+  --text:#0f172a;          /* rich ink black */
+  --muted:#475569;         /* slate gray */
+
+  /* Lines / dividers */
+  --line:#e2e8f0;
+
+  /* Brand */
+  --accent:#0b0f14;        /* near-black */
+  --gold:#bfa14a;          /* muted legal gold */
+  --gold-soft:#f5f0df;     /* soft gold background */
+
+  /* UI */
+  --shadow: 0 12px 30px rgba(15,23,42,.08);
 }
 
 *{box-sizing:border-box}
