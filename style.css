@@ -356,3 +356,14 @@ h2{
 .nav-cta:hover{
   background:var(--gold-soft);
 }
+/* Hero depth */
+.hero{
+  background:
+    linear-gradient(180deg, #ffffff 0%, #fafafa 70%),
+    radial-gradient(900px 300px at 10% 10%, rgba(191,161,74,.08), transparent 60%);
+}
+
+.kicker{
+  color:var(--gold);
+  font-weight:700;
+}
