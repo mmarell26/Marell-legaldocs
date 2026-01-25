@@ -396,3 +396,26 @@ h2::after{
   background:var(--gold);
   margin-top:8px;
 }
+/* Footer */
+.footer{
+  background:#0b0f14;
+  color:#e5e7eb;
+}
+
+.footer-brand{
+  color:var(--gold);
+}
+
+.footer-sub,
+.footer-jurisdiction,
+.footer-disclaimer{
+  color:#cbd5e1;
+}
+
+.footer-right a{
+  color:var(--gold);
+}
+
+.footer-right a:hover{
+  text-decoration:underline;
+}
