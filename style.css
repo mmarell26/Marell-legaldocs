@@ -156,7 +156,28 @@ h1{
   color:var(--text);
 }
 .button.secondary:hover{border-color:#cbd5e1}
+/* Primary CTA – Gold */
+.button.primary{
+  background: linear-gradient(180deg, #c9ad5a 0%, #bfa14a 100%);
+  color:#0b0f14;
+  border:1px solid #bfa14a;
+}
 
+.button.primary:hover{
+  background: linear-gradient(180deg, #d6bb6a 0%, #c9ad5a 100%);
+  border-color:#c9ad5a;
+}
+
+/* Secondary buttons stay neutral */
+.button.secondary{
+  background:#fff;
+  color:var(--accent);
+  border:1px solid var(--line);
+}
+
+.button.secondary:hover{
+  border-color:var(--gold);
+}
 .trustline{
   color:var(--muted);
   font-size:13px;
