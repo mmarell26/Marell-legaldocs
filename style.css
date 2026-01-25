@@ -334,3 +334,25 @@ h2{
   .footer-inner{grid-template-columns:1fr}
   .footer-right{align-items:flex-start;text-align:left}
 }
+/* Header polish */
+.header{
+  border-bottom:1px solid var(--line);
+  background:rgba(255,255,255,.94);
+}
+
+/* Brand mark – gold outline */
+.brand-mark{
+  border:1px solid var(--gold);
+  color:var(--gold);
+  font-weight:900;
+}
+
+/* Navigation CTA */
+.nav-cta{
+  border:1px solid var(--gold);
+  color:var(--accent);
+}
+
+.nav-cta:hover{
+  background:var(--gold-soft);
+}
