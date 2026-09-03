@@ -18,3 +18,24 @@ if (toggle && nav) {
 document.querySelectorAll('[data-year]').forEach((item) => {
   item.textContent = new Date().getFullYear();
 });
+
+document.querySelectorAll('.site-footer').forEach((footer) => {
+  if (footer.querySelector('a[href="mailto:info@marelldocs.com"]')) return;
+
+  const emailLink = document.createElement('a');
+  emailLink.href = 'mailto:info@marelldocs.com';
+  emailLink.textContent = 'info@marelldocs.com';
+
+  const contactColumn = footer.querySelector('.footer-grid > div:last-child');
+  if (contactColumn) {
+    const heading = contactColumn.querySelector('h3');
+    if (heading) heading.insertAdjacentElement('afterend', emailLink);
+    else contactColumn.prepend(emailLink);
+    return;
+  }
+
+  const footerDetails = footer.querySelector('.footer-bottom span:last-child');
+  if (footerDetails) {
+    footerDetails.prepend(emailLink, ' · ');
+  }
+});
