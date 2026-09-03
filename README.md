@@ -8,7 +8,7 @@ Marell Docs turns rough notes, screenshots, emails, forms, and unfinished files 
 
 ## Hosting
 
-- Current custom domain: `marelllegaldocs.com`
+- Current custom domain: `marelldocs.com`
 - The repository works with GitHub Pages and includes `netlify.toml` for Netlify deployment.
 - All website pages are static and require no build command.
 - The quote page uses the Tally form `9qKPLY`, which must be published before launch.
