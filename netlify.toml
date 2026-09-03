@@ -43,3 +43,21 @@
   from = "/contact"
   to = "/contact.html"
   status = 200
+
+[[redirects]]
+  from = "/Legaldocs.html"
+  to = "/services.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/legal-document-preparation-philadelphia.html"
+  to = "/philadelphia.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/child-custody-paperwork-philadelphia.html"
+  to = "/services.html"
+  status = 301
+  force = true
