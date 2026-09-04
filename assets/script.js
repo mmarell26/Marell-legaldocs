@@ -39,3 +39,33 @@ document.querySelectorAll('.site-footer').forEach((footer) => {
     footerDetails.prepend(emailLink, ' · ');
   }
 });
+
+const feedbackForm = document.querySelector('[data-feedback-form]');
+
+if (feedbackForm) {
+  feedbackForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const data = new FormData(feedbackForm);
+    const permission = data.get('permission') === 'yes'
+      ? 'Yes, Marell Docs may publish this feedback with the selected attribution.'
+      : 'No, this feedback is private and may not be published.';
+    const subject = 'Customer feedback for Marell Docs';
+    const body = [
+      'Customer name: ' + data.get('name'),
+      'Email: ' + data.get('email'),
+      'Service: ' + data.get('service'),
+      'Preferred public attribution: ' + data.get('attribution'),
+      '',
+      'Feedback:',
+      data.get('feedback'),
+      '',
+      'Permission:',
+      permission
+    ].join('\n');
+
+    window.location.href = 'mailto:info@marelldocs.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    const status = feedbackForm.querySelector('.form-status');
+    if (status) status.textContent = 'Your email app should now open with your feedback ready to send.';
+  });
+}
