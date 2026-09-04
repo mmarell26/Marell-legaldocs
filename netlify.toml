@@ -1,6 +1,12 @@
 [build]
   publish = "."
 
+[[redirects]]
+  from = "https://www.marelldocs.com/*"
+  to = "https://marelldocs.com/:splat"
+  status = 301
+  force = true
+
 [[headers]]
   for = "/*"
   [headers.values]
@@ -58,6 +64,12 @@
 
 [[redirects]]
   from = "/child-custody-paperwork-philadelphia.html"
+  to = "/services.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/Legaldocs"
   to = "/services.html"
   status = 301
   force = true
