@@ -169,6 +169,7 @@ p { margin: 0 0 18px; }
 }
 .hero h1 span { color: var(--blue); }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 30px 0 24px; }
+.text-cta { display:inline-flex; align-items:center; min-height:48px; padding:10px 8px; color:var(--navy); font-weight:800; text-decoration:underline; text-underline-offset:4px; }
 .trust-line { display: flex; flex-wrap: wrap; gap: 8px 18px; color: var(--muted); font-size: .9rem; font-weight: 650; }
 .trust-line span::before { content: "✓"; margin-right: 7px; color: var(--success); font-weight: 900; }
 
@@ -210,6 +211,8 @@ p { margin: 0 0 18px; }
 }
 .card p { color: var(--muted); }
 .card .price { margin-top: 22px; color: var(--navy); font-size: 1.45rem; font-weight: 850; }
+.service-grid { margin-top:36px; }
+.feature-list { align-self:center; font-size:1.08rem; }
 .card-link { display: inline-flex; margin-top: 8px; color: var(--blue); font-weight: 750; text-decoration: none; }
 .card-link:hover { text-decoration: underline; }
 .icon-box { width: 46px; height: 46px; margin-bottom: 22px; border-radius: 12px; display: grid; place-items: center; background: #edf8f1; color: var(--navy); font-weight: 900; }
@@ -318,6 +321,13 @@ p { margin: 0 0 18px; }
 }
 
 .form-card { padding: 32px; border: 1px solid var(--line); border-radius: 18px; background: white; box-shadow: var(--shadow); }
+.form-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; margin:24px 0; }
+.form-grid label { display:grid; gap:7px; color:var(--navy); font-weight:750; }
+.form-grid .full { grid-column:1/-1; }
+.form-grid input, .form-grid select, .form-grid textarea { width:100%; padding:13px 14px; border:1px solid #b9cfc2; border-radius:10px; background:white; color:var(--ink); }
+.form-grid input:focus, .form-grid select:focus, .form-grid textarea:focus { outline:3px solid rgba(118,229,61,.3); border-color:var(--navy); }
+.form-status { margin-top:16px; color:var(--success); font-weight:700; }
+@media (max-width:640px) { .form-grid { grid-template-columns:1fr; } .form-grid .full { grid-column:auto; } .brand-copy { max-width:220px; } }
 .form-card form { display: grid; gap: 18px; margin-top: 24px; }
 .form-card label { display: grid; gap: 7px; color: var(--ink); font-weight: 750; }
 .form-card input, .form-card select, .form-card textarea { width: 100%; padding: 12px 13px; border: 1px solid #afc4b7; border-radius: 9px; background: white; color: var(--ink); font-weight: 450; }
